@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessApp2.ConfigurarMetaPage"
+             Title="Configurar Meta">
+    
+    <ScrollView Padding="20">
+        <StackLayout Spacing="15">
+
+            <Label Text="Defina sua Meta" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <!-- Peso Atual -->
+            <Label Text="Peso Atual (kg):" FontSize="16" />
+            <Entry x:Name="PesoAtualEntry" Keyboard="Numeric" Placeholder="Ex: 80" />
+
+            <!-- Peso Objetivo -->
+            <Label Text="Peso Objetivo (kg):" FontSize="16" />
+            <Entry x:Name="PesoObjetivoEntry" Keyboard="Numeric" Placeholder="Ex: 70" />
+
+            <Label Text="Sexo:" FontSize="16" />
+            <Picker x:Name="SexoPicker">
+                <Picker.Items>
+                    <x:String>Masculino</x:String>
+                    <x:String>Feminino</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Altura (cm):" FontSize="16" />
+            <Entry x:Name="AlturaEntry" Keyboard="Numeric" Placeholder="Ex: 170" />
+
+            <Label Text="Idade:" FontSize="16" />
+            <Entry x:Name="IdadeEntry" Keyboard="Numeric" Placeholder="Ex: 30" />
+
+            <!-- Data Final -->
+            <Label Text="Data Final:" FontSize="16" />
+            <DatePicker x:Name="DataFinalPicker" />
+
+            <!-- Botão para Salvar -->
+            <Button Text="Salvar Meta" Clicked="OnSalvarMetaClicked" BackgroundColor="#4CAF50" TextColor="White" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessApp2.CalculadoraCaloriasPage"
+             Title="Calculadora de Calorias">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cadastrar Alimento" Clicked="OnAbrirCadastroAlimentoClicked" />
+        <ToolbarItem Text="Remover Alimento" Clicked="OnAbrirRemoverAlimentoClicked" />
+    </ContentPage.ToolbarItems>
+    
+
+    <ScrollView Padding="20">
+        <StackLayout Padding="10">
+            <Label Text="Calculadora de Calorias" FontSize="24" FontAttributes="Bold" />
+
+            <!-- Barra de pesquisa -->
+            <Label Text="Pesquise um alimento:" />
+            <Entry x:Name="PesquisaEntry" Placeholder="Digite o nome do alimento" 
+           TextChanged="OnPesquisaTextChanged" />
+
+            <!-- Resultados da busca -->
+            <ListView x:Name="ResultadosListView" 
+              ItemsSource="{Binding ResultadosBusca}"
+              SelectionMode="Single"
+              ItemSelected="OnAlimentoSelecionado">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nome}" Detail="{Binding CaloriasPorGrama}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Quantidade -->
+            <Label Text="Quantidade (gramas):" />
+            <Entry x:Name="QuantidadeEntry" Placeholder="Ex: 100" Keyboard="Numeric" />
+
+            <!-- Botão para adicionar -->
+            <Button Text="Adicionar Alimento" Clicked="OnAdicionarAlimentoClicked" BackgroundColor="Green" TextColor="White" />
+
+            <!-- Lista de alimentos adicionados -->
+            <Label Text="Alimentos Adicionados:" FontAttributes="Bold" />
+            <ListView x:Name="ListaAlimentosView" />
+
+            <!-- Resultado final -->
+            <Label x:Name="ResultadoLabel" Text="Total de Calorias: 0 kcal" FontAttributes="Bold" HorizontalOptions="Center" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
